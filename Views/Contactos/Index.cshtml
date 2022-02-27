@@ -1,0 +1,48 @@
+﻿@model List<AgendaTelefonica.Models.ViewModels.ListContactsViewModel>
+@{
+    ViewBag.Title = "Listado de contactos";
+}
+&nbsp;
+<div class="row">
+    <h3>@ViewBag.Title</h3>
+</div>
+<div class="row" style="text-align:right;padding:5px;">
+
+    <!-- BUSCADOR -->
+    @using (Html.BeginForm("Buscar", "Contactos", FormMethod.Post))
+    {
+        <div class="form-group form-inline">
+            <a href="~/Contactos/Nuevo" class="btn btn-primary" style="float:left;">Registrar Contacto</a>
+            @Html.Editor("stringBuscar", new { @class = "form-control" })
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </div>
+    }
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var listElemento in Model)
+                {
+                    <tr>
+                        <td>@listElemento.Nombre</td>
+                        <td>@listElemento.Telefono</td>
+                        <td>@listElemento.Email</td>
+                        <td><a class="btn btn-default" href="~/Contactos/Editar/@listElemento.Id_contacto">Editar</a></td>
+                        <td><a class="btn btn-danger" href="~/Contactos/Eliminar/@listElemento.Id_contacto">Eliminar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

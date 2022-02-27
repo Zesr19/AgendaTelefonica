@@ -1,0 +1,39 @@
+﻿@model List<AgendaTelefonica.Models.ViewModels.ListContactsViewModel>
+@{
+    ViewBag.Title = "Resultado de la busqueda: ";
+    ViewBag.Mensaje = ViewData["Mensaje"];
+}
+&nbsp;
+<div class="row">
+    <h3>@ViewBag.Title @ViewBag.Mensaje</p>
+</div>
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Contactos" class="btn btn-primary">Regresar</a>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var listElemento in Model)
+                {
+                    <tr>
+                        <td>@listElemento.Nombre</td>
+                        <td>@listElemento.Telefono</td>
+                        <td>@listElemento.Email</td>
+                        <td><a class="btn btn-default" href="~/Contactos/Editar/@listElemento.Id_contacto">Editar</a></td>
+                        <td><a class="btn btn-danger" href="~/Contactos/Eliminar/@listElemento.Id_contacto">Eliminar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
