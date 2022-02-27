@@ -1,0 +1,8 @@
+create database agenda;
+
+CREATE TABLE contactos (
+id_contacto INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+telefono VARCHAR(10) NOT NULL,
+email VARCHAR(50) NOT NULL
+);
