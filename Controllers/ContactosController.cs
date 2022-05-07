@@ -134,7 +134,6 @@ namespace AgendaTelefonica.Controllers
             return Redirect("~/Contactos");
         }
 
-
         // BUSCAR REGISTROS
         public ActionResult Buscar(string stringBuscar)
         {
