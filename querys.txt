@@ -1,3 +1,5 @@
+/* El query es para SQL Server */
+
 create database agenda;
 
 CREATE TABLE contactos (
